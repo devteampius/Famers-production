@@ -67,6 +67,43 @@ return [
             'sslmode' => 'prefer',
         ],
 
+        'odbcmfg' => [
+            'driver' => 'odbc',
+            'dsn' => 'mfg_test',
+            'database' => 'mfg_test',
+            'host' => '10.99.8.140',
+            'username' => 'gl',
+            'password' => 'East207'
+        ],
+
+        'odbcsfa' => [
+            'driver' => 'odbc',
+            'dsn' => 'sfa_test',
+            'database' => 'sfa_test',
+            'host' => '10.99.8.140',
+            'username' => 'gl',
+            'password' => 'East207'
+        ],
+        
+        'odbcdist' => [
+            'driver' => 'odbc',
+            'dsn' => 'dist_test',
+            'database' => 'dist_test',
+            'host' => '10.99.8.140',
+            'username' => 'gl',
+            'password' => 'East207'
+        ],
+
+        'odbcfin' => [
+            'driver' => 'odbc',
+            'dsn' => 'fin_test',
+            'database' => 'fin_test',
+            'host' => '10.99.8.140',
+            'username' => 'gl',
+            'password' => 'East207'
+        ]
+
+
     ],
 
     /*
