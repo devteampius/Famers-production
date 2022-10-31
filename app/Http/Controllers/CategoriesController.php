@@ -17,7 +17,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $items = Category::with('parent')->get();
+        $items = voucherUpdates::paginate(6);
 
         return view('admin.categories.index', compact('items'));
     }
@@ -83,9 +83,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+     
     }
 
     /**

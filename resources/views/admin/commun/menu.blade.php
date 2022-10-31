@@ -18,6 +18,13 @@
         </a>
     </li>
 
+    <li class="<?php echo ( starts_with($route, ADMIN.'.hangup') ) ? "active" : '' ?>">
+        <a href="{{ route(ADMIN.'.hangup.index') }}">
+            <i class="fa fa-list"></i>
+            <span>Hang up allocation</span>
+        </a>
+    </li>
+
     @if (auth()->user()->hasRole('Superadmin|Admin'))
     <li class="<?php echo ( starts_with($route, ADMIN.'.users') ) ? "active" : '' ?>">
         <a href="{{ route(ADMIN.'.users.index') }}">
