@@ -17,4 +17,11 @@ class HangupController extends Controller
 
         return view('admin.hangup.index');
     }
+
+
+    
+
+    
+
+
 }

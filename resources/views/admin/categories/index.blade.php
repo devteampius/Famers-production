@@ -125,5 +125,8 @@ Voucher <small>{{ trans('app.manage') }}</small>
 </div>
 {{ $items->links()}}
 </div>
+</div>
+<div>
+<div>
 </form>
 @stop

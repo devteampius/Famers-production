@@ -71,6 +71,7 @@ class LoginController extends Controller
         $user = \App\User::where('email', '=', $request->email)
                           ->where('active', '=', 1)
                           ->get();
+                      
                           
         if ($user->isEmpty()) {
             // The user is exist but inactive
@@ -82,8 +83,8 @@ class LoginController extends Controller
         //try login with password
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
-    
-                          
+            var_dump($user);
+            exit;
            
         }
 

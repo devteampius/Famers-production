@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -62,12 +65,36 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $password_hash = bcrypt($data['password']);
+       
+        return  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' =>  $password_hash,
             'role' => 0,
             'active' => 1,
         ]);
+        
+    }
+
+    public function register(Request $request)
+    {
+        
+        $data = $request->all();
+        $this->validator($request->all())->validate();
+       $user =  User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' =>  '$2y$10$R0BquvBpP6qzOni3b.hQhOY7vCUiMdR2mAHP51wVUfQCjzAVmQ9RS',//bcrypt($data['password']),
+            'role' => 0,
+            'active' => 1,
+        ]);
+       
+        event(new Registered($user));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
     }
 }
