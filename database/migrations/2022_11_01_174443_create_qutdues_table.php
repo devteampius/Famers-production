@@ -15,7 +15,7 @@ class CreateQutduesTable extends Migration
     {
         Schema::create('qutdues', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("order_no");
+            $table->string("order_no");
 
             $table->string("old_qty_due")->nullable();
 
@@ -25,6 +25,7 @@ class CreateQutduesTable extends Migration
 
 
             $table->integer("userid");
+            $table->enum("db_status",["verify","rollback","commit"]);
             $table->timestamps();
         });
     }
