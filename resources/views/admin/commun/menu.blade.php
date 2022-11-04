@@ -25,6 +25,14 @@
         </a>
     </li>
 
+    <li class="<?php echo ( starts_with($route, ADMIN.'.pcuser') ) ? "active" : '' ?>">
+        <a href="{{ route(ADMIN.'.pcuser.index') }}">
+            <i class="fa fa-list"></i>
+            <span>Update pc user</span>
+        </a>
+    </li>
+
+
     @if (auth()->user()->hasRole('Superadmin|Admin'))
     <li class="<?php echo ( starts_with($route, ADMIN.'.users') ) ? "active" : '' ?>">
         <a href="{{ route(ADMIN.'.users.index') }}">

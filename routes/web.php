@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\HangupController;
 use App\Http\Controllers\QutdueController;
+use App\Http\Controllers\PcuserController;
+
   Route::get('/', ['uses'=>'DashboardController@index']);
   
 Route::get('login', function () {
@@ -23,6 +25,11 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth']], f
     //Route::get('edit/', 'HangupController@edit');
     //Route::get('hangup','App\Http\Controllers\HangupController@index')->name('index');
     Route::resource('qutdue', 'QutdueController');
+    Route::resource('pcuser', 'PcuserController');
+    
+    //Route::get('pcuser','PcuserController@index')->name('index');
+    //Route::get('/pcuser', [PcuserController::class, 'index']);
+
     
 
     Route::resource('users', 'UsersController')->middleware('Role:Superadmin|Admin');
