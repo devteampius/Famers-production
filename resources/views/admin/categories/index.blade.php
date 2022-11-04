@@ -117,7 +117,7 @@ Voucher <small>{{ trans('app.manage') }}</small>
 <td>{{$r->updated_at}}</td>
 <td>
 <a href="{{  route(ADMIN.'.categories.edit',$r->id) }}" class="btn btn-success">Edit</a>
-<a href="{{  route(ADMIN.'.categories.edit',$r->cm_paid_status) }}" class="btn btn-primary">view</a>
+<a href="{{  route(ADMIN.'.categories.edit',$r->vou_number) }}" class="btn btn-primary">view</a>
 </td>
 </tr>
 @endforeach

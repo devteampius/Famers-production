@@ -15,8 +15,15 @@ class QutdueController extends Controller
      */
     public function index()
     {
+        $items = Qutdue::paginate(6);
 
-        return view('admin.qutdue.index');
+        return view('admin.qutdue.index', compact('items'));
+    }
+
+
+    public function show()
+    {
+     
     }
 
     public function store(Request $request)

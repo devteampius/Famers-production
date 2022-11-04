@@ -54,7 +54,6 @@ Quantity Due <small>update ({{$item->order_no}})</small>
       <input type="text" value="{{$item->rl_qty_due}}" name="rl_qty_due" class="form-control">
     </div>
   </div>
-
   </div>
           @endif
 
@@ -63,7 +62,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
 <div class="row">
   <div class="col-md-4">
     <div class="form-group">
-      <label>>Quantity Due (Rollback) </label>
+      <label>Quantity Due (Rollback) </label>
       <input type="text" value="{{$item->rl_qty_due}}" disabled class="form-control">
     </div>
   </div>
@@ -84,7 +83,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
           @endif
 
 
-
+ 
           @if($item->db_status == 'commit')
 
 <div class="row">
@@ -105,7 +104,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
             </div>
 
             </div>
-          @endif
+          @endif 
 
 
 
@@ -129,5 +128,9 @@ Quantity Due <small>update ({{$item->order_no}})</small>
 </div>
 </div>
 </div>
+
+
+
+
 
           @stop
