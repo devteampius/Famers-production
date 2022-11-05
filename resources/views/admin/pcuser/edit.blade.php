@@ -1,7 +1,7 @@
 @extends('admin.adminlayout')
 
 @section('page-header')
-Pc user<small>update ({{'$item->user_id'}})</small>
+Pc user<small>update ({{$item->user_id}})</small>
 @stop
 
 @section('content')
@@ -36,7 +36,7 @@ Pc user<small>update ({{'$item->user_id'}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>First name (old) </label>
-                <input value="{{$item->old_first_name}" class="form-control" disabled>
+                <input value="{{$item->old_first_name}}" class="form-control" disabled>
               </div>
             </div>
 
@@ -81,7 +81,7 @@ Pc user<small>update ({{'$item->user_id'}})</small>
   <div class="col-md-4">
     <div class="form-group">
       <label>Last name (Rollback) </label>
-      <input type="text" value="{{$item->rl_last_name}}" name="rl_last_namee" class="form-control">
+      <input type="text" value="{{$item->rl_last_name}}" name="rl_last_name" class="form-control">
     </div>
   </div>
 
@@ -90,4 +90,142 @@ Pc user<small>update ({{'$item->user_id'}})</small>
 @endif
 
 
+@if($item->db_status == 'rollback')
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>First Name (Rollback) </label>
+      <input type="text" value="{{$item->rl_first_name}}" disabled class="form-control">
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+              <div class="form-group">
+                <label>Middle Name (Rollback) </label>
+                <input type="text" value="{{$item->rl_goes_by_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Last Name (Rollback) </label>
+                <input type="text" value="{{$item->rl_last_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+</div>
+
+
+
+<div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>First Name (Commit) </label>
+                <input type="text" value="{{$item->cm_first_name}}" name="cm_first_name" class="form-control">
+              </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Middle Name (Commit) </label>
+                <input type="text" value="{{$item->cm_goes_by_name}}" name="cm_goes_by_name" class="form-control">
+              </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Last Name (Commit) </label>
+                <input type="text" value="{{$item->cm_last_name}}" name="cm_last_name" class="form-control">
+              </div>
+            </div>
+
+</div>
+@endif
+
+@if($item->db_status == 'commit')
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>First Name (Rollback) </label>
+                <input type="text" value="{{$item->rl_first_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Middle Name (Rollback) </label>
+                <input type="text" value="{{$item->rl_goes_by_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Last Name (Rollback) </label>
+                <input type="text" value="{{$item->rl_last_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+
+            </div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>First Name (Commit) </label>
+      <input type="text" value="{{$item->cm_first_name}}" disabled class="form-control">
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+              <div class="form-group">
+                <label>Middle Name (Commit) </label>
+                <input type="text" value="{{$item->cm_goes_by_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Last Name (Commit) </label>
+                <input type="text" value="{{$item->cm_last_name}}" disabled class="form-control">
+              </div>
+            </div>
+
+            </div>
+          @endif
+
+
+          </div>
+
+<div class="box-footer" style="background-color:#f5f5f5;border-top:1px solid #d2d6de;">
+  @if($item->db_status == 'verify')
+  <button type="submit" class="btn btn-info" style="width:100px;">Do Rollback</button>
+  @endif
+  @if($item->db_status == 'rollback')
+  <button type="submit" class="btn btn-info" style="width:100px;">Do Commit</button>
+  @endif
+</div>
+
+
+
+</form>
+
+</div>
+  </div>
+</div>
 @stop
+
+
+
+

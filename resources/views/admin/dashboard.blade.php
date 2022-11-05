@@ -69,11 +69,11 @@
 <a href="{{ route(ADMIN.'.hangup.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 </div>
 </div>
-</div>
+
 
 
  
-<div class="row">
+
 <div class="col-lg-3 col-6">
 
 <div class="small-box bg-success">

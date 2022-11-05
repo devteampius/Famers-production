@@ -27,7 +27,7 @@
 
     <li class="<?php echo ( starts_with($route, ADMIN.'.pcuser') ) ? "active" : '' ?>">
         <a href="{{ route(ADMIN.'.pcuser.index') }}">
-            <i class="fa fa-list"></i>
+            <i class="fa fa-edit"></i>
             <span>Update pc user</span>
         </a>
     </li>

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pcuserupdate;
 use Illuminate\Support\Facades\DB; 
+use  Config;
 
 
 
@@ -52,7 +53,7 @@ class PcuserController extends Controller
         $user =  Pcuserupdate::create($user_data);
 
         if ($user) {
-            return redirect()->route(ADMIN . '.pcuser.index', $user->id)->withSuccess("user id is successfully verified");
+            return redirect()->route(ADMIN . '.pcuser.edit', $user->id)->withSuccess("user id is successfully verified");
         } else {
             return redirect()->back()->withErrors(['error' => 'Unable to save Verfied user id details']);
         }
@@ -61,10 +62,11 @@ class PcuserController extends Controller
 
     public function edit($id)
     {
+        
 
         $item = Pcuserupdate::findOrFail($id);
 
-        return view('admin.categories.edit', compact('item'));
+        return view('admin.pcuser.edit', compact('item'));
     }
 
 
@@ -98,9 +100,9 @@ class PcuserController extends Controller
 
 
                    update pc_user_def
-                   set first_name='" . $rl_first_name . "',
-                   goes_by_name ='".$rl_goes_by_name. "',
-                   last_name='" .$rl_last_name. "'
+                   set first_name = '" . $rl_first_name . "',
+                   goes_by_name = '". $rl_goes_by_name . "',
+                   last_name = '" . $rl_last_name . "'
                    where user_id='$item->user_id'
 
 
@@ -114,6 +116,9 @@ rollback tran
 
 
 $user_details =  DB::connection('odbcdist','odbcmfg','odbcsfa')->select($sql);
+
+// var_dump($user_details);
+// exit;
 
 if (!$user_details) {
     return redirect()->back()->withErrors(['error' => 'Unable to get Updated Rollback']);
@@ -129,6 +134,86 @@ $item->rl_last_name  = $user_details[0]['last_name'];
 
 $item->db_status  = 'rollback';
 
+// var_dump($item);
+// exit;
+
+$update =  $item->update();
+
+            if ($update) {
+
+                return redirect()->route(ADMIN . '.pcuser.edit', $item->id)->withSuccess("Rollback Tran Run Successfully");
+            } else {
+                return redirect()->route(ADMIN . '.pcuser.edit', $item->id)->withErrors(['error' => 'Unable to run Rollback Tran']);
+            }
         }
-    }
+
+        else if ($item->db_status == 'rollback') {
+            $this->validate($request, [
+                'cm_first_name' => 'required',
+                'cm_goes_by_name' => 'required',
+                'cm_last_name' => 'required',
+            ]);
+
+            $cm_first_name = $request->input('cm_first_name');
+            $cm_goes_by_name = $request->input('cm_goes_by_name');
+            $cm_last_name = $request->input('cm_last_name');
+
+
+            $sql = "begin tran
+
+            select * from pc_user_def
+            where user_id='$item->user_id'
+
+
+            update pc_user_def
+            set first_name='" . $cm_first_name . "',
+            goes_by_name ='".$cm_goes_by_name. "',
+            last_name='" .$cm_last_name. "'
+            where user_id='$item->user_id'
+
+
+
+             select * from pc_user_def
+             where user_id='$item->user_id'
+
+
+commit tran
+";
+
+
+$user_details =  DB::connection('odbcdist','odbcmfg','odbcsfa')->select($sql);
+
+if (!$user_details) {
+    return redirect()->back()->withErrors(['error' => 'Unable to get Updated Rollback']);
 }
+
+
+
+$user_data  = array();
+$user_data['user_id'] = $user_details[0]['user_id'];
+
+$item->cm_first_name  = $user_details[0]['first_name'];
+$item->cm_goes_by_name  = $user_details[0]['goes_by_name'];
+$item->cm_last_name  = $user_details[0]['last_name'];
+
+$item->db_status  = 'commit';
+
+
+$update =  $item->update();
+
+            if ($update) {
+
+                return redirect()->route(ADMIN . '.pcuser.edit', $item->id)->withSuccess("Commit Tran Run Successfully");
+            } else {
+                return redirect()->route(ADMIN . '.pcuser.edit', $item->id)->withErrors(['error' => 'Unable to run Rollback Tran']);
+            }
+        }
+        else
+        {
+            return redirect()->route(ADMIN.'.pcuser.index')->withErrors(['error' => 'Invalid Operation']);   
+        }
+
+    }
+
+        }
+    
