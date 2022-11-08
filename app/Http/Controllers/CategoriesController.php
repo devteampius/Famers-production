@@ -176,20 +176,23 @@ class CategoriesController extends Controller
 
         else if ($item->db_status == 'rollback') {
             $this->validate($request, [
-                'cm_paid_status' => 'required',
-                'cm_paid_date' => 'required',
+               // 'cm_paid_status' => 'required',
+               // 'cm_paid_date' => 'required',
             ]);
 
-            $cm_paid_date = $request->input('cm_paid_date');
-            $cm_paid_status = $request->input('cm_paid_status');
+        //      $cm_paid_date = $request->input('cm_paid_date');
+        //    $cm_paid_status = $request->input('cm_paid_status');
+        // $rl_paid_date = $request->input('rl_paid_date');
+        // $rl_paid_status = $request->input('rl_paid_status');
+
 
             $sql = "begin tran
   
         
         update voucher 
         set vou_paid_amt = vou_inv_amt,
-        vou_pay_dt = '" . $cm_paid_date . "',
-        vou_status = '" . $cm_paid_status . "'
+        vou_pay_dt = '" . $rl_paid_date . "',
+        vou_status = '" . $rl_paid_status . "'
         where vou_no = $item->vou_number   
         
         
@@ -210,9 +213,9 @@ class CategoriesController extends Controller
             $vou_data  = array();
             $vou_data['vou_number'] = $vou_details[0]['vou_no'];
 
-            $item->cm_paid_status  = $vou_details[0]['vou_status'];
-            $item->cm_paid_amt  = $vou_details[0]['vou_paid_amt'];
-            $item->cm_paid_date  = $vou_details[0]['vou_pay_dt'];
+            $item->rl_paid_status  = $vou_details[0]['vou_status'];
+            $item->rl_paid_amt  = $vou_details[0]['vou_paid_amt'];
+            $item->rl_paid_date  = $vou_details[0]['vou_pay_dt'];
 
             $item->db_status  = 'commit';
 

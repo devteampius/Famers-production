@@ -111,14 +111,14 @@ class PcuserController extends Controller
                     where user_id='$item->user_id'
 
 
-rollback tran
-";
+       rollback tran
+       ";
 
 
 $user_details =  DB::connection('odbcdist','odbcmfg','odbcsfa')->select($sql);
 
-// var_dump($user_details);
-// exit;
+var_dump($user_details[0]);
+exit;
 
 if (!$user_details) {
     return redirect()->back()->withErrors(['error' => 'Unable to get Updated Rollback']);

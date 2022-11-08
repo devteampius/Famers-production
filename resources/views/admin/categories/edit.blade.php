@@ -39,21 +39,21 @@ Voucher <small>update ({{$item->vou_number}})</small>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label>Voucher Payment Status (old) </label>
+                <label>Voucher Payment Status (Before) </label>
                 <input value="{{$item->old_paid_status}}" class="form-control" disabled>
               </div>
             </div>
 
             <div class="col-md-4">
               <div class="form-group">
-                <label>Voucher Payment Amount (old) </label>
+                <label>Voucher Payment Amount (Before) </label>
                 <input value="{{$item->old_paid_amt}}" class="form-control" disabled>
               </div>
             </div>
 
             <div class="col-md-4">
               <div class="form-group">
-                <label>Voucher Payment Date (old) </label>
+                <label>Voucher Payment Date (Before) </label>
                 <input value="{{$item->old_paid_date}}" class="form-control" disabled>
               </div>
             </div>
@@ -108,7 +108,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
 
           </div>
 
-
+<!-- 
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -127,7 +127,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
             </div>
 
 
-          </div>
+          </div> -->
           @endif
 
           @if($item->db_status == 'commit')

@@ -13,7 +13,7 @@
 </style>
 @stop
 @section('page-header')
-Hangup allocation <small></small>
+Hangup allocation <small>Unable to De-allocate</small>
 @stop
 
 
@@ -24,7 +24,7 @@ Hangup allocation <small></small>
     <div class="box" style="border:1px solid #d2d6de;">
 
       <div class="box-header" style="background-color:#f5f5f5;border-bottom:1px solid #d2d6de;">
-        <h3><b>Quantity Due<b></h3>
+        <h3><b>Unable to De-allocate<b></h3>
 
 
       </div>
@@ -38,7 +38,7 @@ Hangup allocation <small></small>
           <span class="border border-success"></span>
 
           <div class="form-group">
-            <input class="left" type="id" name="order_number" class="form-control" placeholder="order no">
+            <input class="left" type="id" name=" order_no" class="form-control" placeholder="order number">
           </div>
 
           <div class="form-group">
@@ -49,4 +49,5 @@ Hangup allocation <small></small>
           </div>
           </div>
           </div>
-@stop
+
+          @stop  

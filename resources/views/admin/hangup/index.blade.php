@@ -71,7 +71,7 @@
 <div class="icon">
 <i class="ion ion-bag"></i>
 </div>
-<a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+<a href="{{ route(ADMIN.'.hangupdeallocate.index') }}" class="small-box-footer"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
