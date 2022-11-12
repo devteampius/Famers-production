@@ -3,6 +3,7 @@ use App\Http\Controllers\HangupController;
 use App\Http\Controllers\QutdueController;
 use App\Http\Controllers\PcuserController;
 use App\Http\Controllers\HangupdeallocateController;
+use App\Http\Controllers\TrialbalanceController;
 
   Route::get('/', ['uses'=>'DashboardController@index']);
   
@@ -28,6 +29,7 @@ Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth']], f
     Route::resource('qutdue', 'QutdueController');
     Route::resource('pcuser', 'PcuserController');
     Route::resource('hangupdeallocate', 'HangupdeallocateController');
+    Route::resource('trialbalance', 'TrialbalanceController');
 
     //Route::get('pcuser','PcuserController@index')->name('index');
     //Route::get('/pcuser', [PcuserController::class, 'index']);

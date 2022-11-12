@@ -130,12 +130,9 @@ class QutdueController extends Controller
         }
 
         else if ($item->db_status == 'rollback') {
-            $this->validate($request, [
-                'cm_qty_due' => 'required',
-                
-            ]);
-
-            $cm_qty_due = $request->input('cm_qty_due');
+           
+            $cm_qty_due = $item->rl_qty_due;
+           
             
             $sql = "begin tran
   

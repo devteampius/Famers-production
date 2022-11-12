@@ -126,6 +126,7 @@ class CategoriesController extends Controller
 
             $rl_paid_date = $request->input('rl_paid_date');
             $rl_paid_status = $request->input('rl_paid_status');
+          
 
             $sql = "begin tran
   
@@ -149,7 +150,7 @@ class CategoriesController extends Controller
                 return redirect()->back()->withErrors(['error' => 'Unable to get Updated Rollback']);
             }
 
-
+           
 
             $vou_data  = array();
             $vou_data['vou_number'] = $vou_details[0]['vou_no'];
@@ -160,10 +161,13 @@ class CategoriesController extends Controller
 
             $item->db_status  = 'rollback';
 
-
-
+        
+// var_dump($item);
+// exit;
 
             $update =  $item->update();
+
+            
 
             if ($update) {
 
@@ -175,24 +179,24 @@ class CategoriesController extends Controller
 
 
         else if ($item->db_status == 'rollback') {
-            $this->validate($request, [
-               // 'cm_paid_status' => 'required',
-               // 'cm_paid_date' => 'required',
-            ]);
+           
 
         //      $cm_paid_date = $request->input('cm_paid_date');
         //    $cm_paid_status = $request->input('cm_paid_status');
-        // $rl_paid_date = $request->input('rl_paid_date');
-        // $rl_paid_status = $request->input('rl_paid_status');
-
-
-            $sql = "begin tran
+         $cm_paid_date = $item->rl_paid_date;
+         $cm_paid_status = $item->rl_paid_status;
+        
+         
+    //   var_dump($cm_paid_date);
+    //       exit;
+           
+          $sql = "begin tran
   
         
         update voucher 
         set vou_paid_amt = vou_inv_amt,
-        vou_pay_dt = '" . $rl_paid_date . "',
-        vou_status = '" . $rl_paid_status . "'
+        vou_pay_dt = '" . $cm_paid_date . "',
+        vou_status = '" . $cm_paid_status . "'
         where vou_no = $item->vou_number   
         
         
@@ -201,6 +205,7 @@ class CategoriesController extends Controller
         
         commit  tran
         ";
+    
 
             $vou_details =  DB::connection('odbcfin')->select($sql);
 
@@ -213,14 +218,15 @@ class CategoriesController extends Controller
             $vou_data  = array();
             $vou_data['vou_number'] = $vou_details[0]['vou_no'];
 
-            $item->rl_paid_status  = $vou_details[0]['vou_status'];
-            $item->rl_paid_amt  = $vou_details[0]['vou_paid_amt'];
-            $item->rl_paid_date  = $vou_details[0]['vou_pay_dt'];
+            $item->cm_paid_status  = $vou_details[0]['vou_status'];
+            $item->cm_paid_amt  = $vou_details[0]['vou_paid_amt'];
+            $item->cm_paid_date  = $vou_details[0]['vou_pay_dt'];
 
             $item->db_status  = 'commit';
 
 
-
+            // var_dump($item);
+            // exit;
 
             $update =  $item->update();
 

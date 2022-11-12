@@ -136,7 +136,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Voucher Payment Status (Rollback) </label>
-                <input type="text" value="{{$item->rl_paid_status}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_paid_status}}" readonly class="form-control">
               </div>
             </div>
 
@@ -145,7 +145,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Voucher Payment Date (Rollback) </label>
-                <input type="text" value="{{$item->rl_paid_date}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_paid_date}}"  readonly class="form-control">
               </div>
             </div>
 
@@ -157,7 +157,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Voucher Payment Status (Commit) </label>
-                <input type="text" value="{{$item->cm_paid_status}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_paid_status}}"  readonly class="form-control">
               </div>
             </div>
 
@@ -166,7 +166,7 @@ Voucher <small>update ({{$item->vou_number}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Voucher Payment Date (Commit) </label>
-                <input type="text" value="{{$item->cm_paid_date}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_paid_date}}"  readonly class="form-control">
               </div>
             </div>
 

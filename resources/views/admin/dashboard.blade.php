@@ -5,6 +5,12 @@
 .bg-success {
     background-color: #80ac6f;
 }
+
+.bg-danger {
+  background-color: #ad6a6a;
+  margin-left: -14px;
+}
+
 </style>
 @stop
 
@@ -88,7 +94,25 @@
 </div>
 </div>
 </div>
+
+
+
+
+<div class="col-lg-3 col-6">
+
+<div class="small-box bg-danger">
+<div class="inner">
+<h3>Trial</h3>
+<h4>Balance</h4>
 </div>
+<div class="icon">
+<i class="ion ion-bag"></i>
+</div>
+<a href="{{ route(ADMIN.'.trialbalance.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+</div>
+</div>
+</div>
+
 
 
 

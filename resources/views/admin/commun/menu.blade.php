@@ -32,6 +32,13 @@
         </a>
     </li>
 
+    <li class="<?php echo ( starts_with($route, ADMIN.'.trialbalance') ) ? "active" : '' ?>">
+        <a href="{{ route(ADMIN.'.trialbalance.index') }}">
+            <i class="fa fa-balance-scale"></i>
+            <span>Trial balance</span>
+        </a>
+    </li>
+
 
     @if (auth()->user()->hasRole('Superadmin|Admin'))
     <li class="<?php echo ( starts_with($route, ADMIN.'.users') ) ? "active" : '' ?>">

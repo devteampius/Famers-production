@@ -38,7 +38,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label>Quantity Due (old) </label>
+                <label>Quantity Due (Before) </label>
                 <input value="{{$item->old_qty_due}}" class="form-control" disabled>
               </div>
             </div>
@@ -71,7 +71,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
   </div>
 
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-4">
     <div class="form-group">
       <label>Quantity Due (Commit) </label>
@@ -79,7 +79,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
     </div>
   </div>
 
-  </div>
+  </div> -->
           @endif
 
 
@@ -90,7 +90,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
   <div class="col-md-4">
     <div class="form-group">
       <label>Quantity Due (Rollback) </label>
-      <input type="text" value="{{$item->rl_qty_due}}" disabled class="form-control">
+      <input type="text" value="{{$item->rl_qty_due}}" readonly class="form-control">
     </div>
   </div>
 
@@ -99,7 +99,7 @@ Quantity Due <small>update ({{$item->order_no}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Quantity Due (Commit) </label>
-                <input type="text" value="{{$item->cm_qty_due}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_qty_due}}" readonly class="form-control">
               </div>
             </div>
 

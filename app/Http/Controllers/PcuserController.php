@@ -113,11 +113,12 @@ class PcuserController extends Controller
 
        rollback tran
        ";
-
+// var_dump($sql);
+// exit;
 
 $user_details =  DB::connection('odbcdist','odbcmfg','odbcsfa')->select($sql);
 
-var_dump($user_details[0]);
+var_dump($user_details);
 exit;
 
 if (!$user_details) {
@@ -134,8 +135,7 @@ $item->rl_last_name  = $user_details[0]['last_name'];
 
 $item->db_status  = 'rollback';
 
-// var_dump($item);
-// exit;
+
 
 $update =  $item->update();
 
@@ -147,16 +147,14 @@ $update =  $item->update();
             }
         }
 
-        else if ($item->db_status == 'rollback') {
-            $this->validate($request, [
-                'cm_first_name' => 'required',
-                'cm_goes_by_name' => 'required',
-                'cm_last_name' => 'required',
-            ]);
+      
 
-            $cm_first_name = $request->input('cm_first_name');
-            $cm_goes_by_name = $request->input('cm_goes_by_name');
-            $cm_last_name = $request->input('cm_last_name');
+        else if ($item->db_status == 'rollback') {
+           
+
+            $cm_first_name = $item->rl_first_name;
+            $cm_goes_by_name = $item->rl_goes_by_name;
+            $cm_last_name = $item->rl_last_name;
 
 
             $sql = "begin tran

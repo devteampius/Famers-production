@@ -120,7 +120,7 @@ Pc user<small>update ({{$item->user_id}})</small>
 
 
 
-<div class="row">
+<!-- <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 <label>First Name (Commit) </label>
@@ -144,7 +144,7 @@ Pc user<small>update ({{$item->user_id}})</small>
                 <label>Last Name (Commit) </label>
                 <input type="text" value="{{$item->cm_last_name}}" name="cm_last_name" class="form-control">
               </div>
-            </div>
+            </div> -->
 
 </div>
 @endif
@@ -155,14 +155,14 @@ Pc user<small>update ({{$item->user_id}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>First Name (Rollback) </label>
-                <input type="text" value="{{$item->rl_first_name}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_first_name}}" readonly class="form-control">
               </div>
             </div>
 
             <div class="col-md-4">
               <div class="form-group">
                 <label>Middle Name (Rollback) </label>
-                <input type="text" value="{{$item->rl_goes_by_name}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_goes_by_name}}" readonly class="form-control">
               </div>
             </div>
 
@@ -171,7 +171,7 @@ Pc user<small>update ({{$item->user_id}})</small>
             <div class="col-md-4">
               <div class="form-group">
                 <label>Last Name (Rollback) </label>
-                <input type="text" value="{{$item->rl_last_name}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_last_name}}" readonly class="form-control">
               </div>
             </div>
 
@@ -183,7 +183,7 @@ Pc user<small>update ({{$item->user_id}})</small>
   <div class="col-md-4">
     <div class="form-group">
       <label>First Name (Commit) </label>
-      <input type="text" value="{{$item->cm_first_name}}" disabled class="form-control">
+      <input type="text" value="{{$item->rl_first_name}}" readonly class="form-control">
     </div>
   </div>
 
@@ -191,14 +191,14 @@ Pc user<small>update ({{$item->user_id}})</small>
   <div class="col-md-4">
               <div class="form-group">
                 <label>Middle Name (Commit) </label>
-                <input type="text" value="{{$item->cm_goes_by_name}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_goes_by_name}}" readonly class="form-control">
               </div>
             </div>
 
             <div class="col-md-4">
               <div class="form-group">
                 <label>Last Name (Commit) </label>
-                <input type="text" value="{{$item->cm_last_name}}" disabled class="form-control">
+                <input type="text" value="{{$item->rl_last_name}}" readonly class="form-control">
               </div>
             </div>
 
