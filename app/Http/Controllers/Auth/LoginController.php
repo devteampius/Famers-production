@@ -83,8 +83,7 @@ class LoginController extends Controller
         //try login with password
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
-            var_dump($user);
-            exit;
+            
            
         }
 

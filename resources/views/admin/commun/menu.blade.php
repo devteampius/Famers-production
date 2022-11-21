@@ -40,6 +40,24 @@
     </li>
 
 
+
+    <li class="<?php echo ( starts_with($route, ADMIN.'.invoiceline') ) ? "active" : '' ?>">
+        <a href="{{ route(ADMIN.'.invoiceline.index') }}">
+            <i class="fa fa-edit"></i>
+            <span>Invoice line count month wise</span>
+        </a>
+    </li>
+
+
+    <li class="<?php echo ( starts_with($route, ADMIN.'.breakdown') ) ? "active" : '' ?>">
+        <a href="{{ route(ADMIN.'.breakdown.index') }}">
+            <i class="fa fa-edit"></i>
+            <span>BREAKDOWN BETWEEN TX AND SA</span>
+        </a>
+    </li>
+
+
+
     @if (auth()->user()->hasRole('Superadmin|Admin'))
     <li class="<?php echo ( starts_with($route, ADMIN.'.users') ) ? "active" : '' ?>">
         <a href="{{ route(ADMIN.'.users.index') }}">

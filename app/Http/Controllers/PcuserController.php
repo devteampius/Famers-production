@@ -33,6 +33,8 @@ class PcuserController extends Controller
 
         $sql = "select * from pc_user_def where user_id  = '$user_id' ";
         $user_details =  DB::connection('odbcmfg','odbcdist','odbcsfa')->select($sql);
+        // var_dump($user_details);
+        // exit;
         
         if (!$user_details) {
             return redirect()->back()->withErrors(['error' => 'user id is not found in Sybase Database']);

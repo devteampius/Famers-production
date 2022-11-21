@@ -87,7 +87,7 @@ Hangup allocation <small></small>
 <td>
 
 
-<a href="{{  route(ADMIN.'.qutdue.edit',$r->id),'db_status == verify' }}" class="btn btn-success">Edit</a>
+<a href="{{  route(ADMIN.'.qutdue.edit',$r->id) }}" class="btn btn-success">Edit</a>
 <a href="{{  route(ADMIN.'.qutdue.edit',$r->id) }}" class="btn btn-primary">view</a>
 </td>
 </tr>

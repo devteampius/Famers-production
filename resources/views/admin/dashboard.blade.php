@@ -111,6 +111,44 @@
 <a href="{{ route(ADMIN.'.trialbalance.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 </div>
 </div>
+
+
+
+<div class="col-lg-3 col-6">
+
+<div class="small-box bg-danger">
+<div class="inner">
+<h3>Invoice</h3>
+<h4>Line count month wise</h4>
+</div>
+<div class="icon">
+<i class="ion ion-bag"></i>
+</div>
+<a href="{{  route(ADMIN.'.invoiceline.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+</div>
+</div>
+
+
+
+
+<div class="col-lg-3 col-6">
+
+<div class="small-box bg-danger">
+<div class="inner">
+<h3>BREAKDOWN</h3>
+<h4>BETWEEN TX AND SA</h4>
+</div>
+<div class="icon">
+<i class="ion ion-bag"></i>
+</div>
+<a href="{{  route(ADMIN.'.breakdown.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+</div>
+</div>
+
+
+
+
+
 </div>
 
 
